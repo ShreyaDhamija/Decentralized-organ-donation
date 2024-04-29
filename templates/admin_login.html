@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'home/css/bootstrap.min.css' %}" rel="stylesheet">
+   
+	
+</head>
+
+<body>
+    {% include "header_home.html" %}
+      <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-6"></div>
+            <div class="col-sm-3 text-center">
+                <h2>Admin Login</h2>
+            </div>
+              
+          </div>
+
+          <div class="row">
+            
+            <div class="col-sm-6">
+                <img class="img-fluid " src="/static/img/21.jpg" alt="">
+          </div>
+          <div class="col-sm-6" style="background-color: rgb(169, 169, 169);">
+                <form action="" method="post">
+                    {% csrf_token %}
+                <div class="form-group pt-3">
+                    <label class="control-label">User Name </label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user-tie"></i></span>
+                    <input class="form-control" type="text" name="uname" required>
+                    </div>
+                </div>
+                <div class="form-group pt-3">
+                    <label class="control-label">Password </label>
+                    <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-key"></i></span>
+                    <input class="form-control" type="password" name="pass1" required>
+                </div>
+                </div>
+                <div class="form-group p-3 text-center">
+                   <input type="Submit" class="btn btn-success" value="Login">
+                   
+                </div>
+            </form>
+                  {% for message in messages%}
+                  <div class="alert alert-danger" role="alert">
+                      {{message}}
+                      {{break}}
+                    </div>
+                  {% endfor %}
+              </div>
+             
+          </div>
+      </div>
+      <div class="footer">
+        <div class="copyright text-center">
+        <p>Copyright © {% now "Y" %}</p>
+        </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'home/css/bootstrap.min.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+    {% include "header_doctor.html" %}
+    
+       
+            <div class="card mb-12">
+                <div class="card-header"><strong>Patient Request List</strong></div>
+                <div class="row">
+            <div class="col-sm-12">
+                {% for msg in messages%}
+                <div class="alert alert-success mt-2">
+                    {{msg}}
+                    
+                  </div>
+                {% endfor %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Patient Name</th>
+                            <th>Gender</th>
+                            <th>DOB</th>
+                            <th>Place</th>
+                            <th>Street</th>
+                            <th>Pincode</th>
+                            <th>Contact Number</th>
+                            <th>Organs Need</th>
+                            <th>Blood Group</th>
+                           
+                            <th>Hospital Name</th>
+                            <th>Doctor Name</th>
+                           <th>Delete</th>
+                           
+                        </tr>
+                    </thead>
+            <tbody>
+                {% for ob in form%}
+                <tr>
+                    <td>{{ob.id}}</td>
+                    <td>{{ob.pname}}</td>
+                    <td>{{ob.gender}}</td>
+                    <td>{{ob.dob}}</td>
+                    <td>{{ob.place}}</td>
+                    <td>{{ob.street}}</td>
+                    <td>{{ob.pcode}}</td>
+                    <td>{{ob.cno}}</td>
+                    
+                    <td>{{ob.organ}}</td>
+                    
+                    <td>{{ob.bgroup}}</td>
+                    
+                    <td>{{ob.hname}}</td>
+                    <td>{{ob.dname}}</td>
+                    <td><a href="/patient_delete_request/{{ob.id}}" style="color:red">
+                        <i class="fa-regular fa-trash-can"></i> 
+                    </a></td>
+                  
+                  
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+            </div>
+            
+        </div>
+    </div>
+    {% include "footer.html" %}
+</body>
+
+</html>

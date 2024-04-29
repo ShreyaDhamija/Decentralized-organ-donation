@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'home/css/bootstrap.min.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+    {% include "header_admin.html" %}
+    <div class="card mb-12">
+        <div class="card-header"><strong>Doctor List</strong></div>
+        <div class="row">
+    <div class="col-sm-12">
+        {% for msg in messages%}
+        <div class="alert alert-success mt-2">
+            {{msg}}
+            
+          </div>
+        {% endfor %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Doctor Name</th>
+                            <th>Qualification</th>
+                            <th>Specialist</th>
+                            <th>Hospital Name</th>
+                            <th>E-mail</th>
+                            <th>Contact Number</th>
+                           
+                           
+                           
+                        </tr>
+                    </thead>
+            <tbody>
+                {% for ob in form%}
+                <tr>
+                    <td>{{ob.id}}</td>
+                    <td>{{ob.dname}}</td>
+                    <td>{{ob.quali}}</td>
+                    <td>{{ob.spec}}</td>
+                    <td>{{ob.hname}}</td>
+                    <td>{{ob.email}}</td>
+                    <td>{{ob.cno}}</td>
+                  
+                    
+                    <td>
+                        <a href="/doctor_delete/{{ob.id}}" style="color:red">
+                            <i class="fa-regular fa-trash-can"></i> 
+                        </a>
+                    </td>
+                  
+                            
+                  
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+            </div>
+            
+        </div>
+    </div>
+    {% include "footer.html" %}
+</body>
+
+</html>

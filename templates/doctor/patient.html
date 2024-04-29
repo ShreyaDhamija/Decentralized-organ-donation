@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% include "header_doctor.html" %}
+    <div class="card mb-12">
+        <div class="card-header"><strong>Patient Request</strong></div>
+        <div class="row p-2">
+            <div class="col-sm-6">
+                {% block content %}
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-4 mb-2">
+                            Patient Name
+                        </div>
+                        <div class="col-sm-8 mb-2">
+                            <input type="text" name="pname" class="form-control shadow-none">
+                        </div>
+                        <div class="col-sm-4 mb-2">
+                            Gender
+                        </div>
+                        <div class="col-sm-8 mb-2">
+                            <select name="gender" class="form-select">
+                                <option>Male</option>
+                                <option>Female</option>
+                               
+                            </select>
+                        </div>
+                        <div class="col-sm-4 mb-2">
+                            DOB
+                        </div>
+                        <div class="col-sm-8 mb-2">
+                            <input type="date" name="dob" class="form-control shadow-none">
+                        </div>
+                        <div class="col-sm-4 mb-2">
+                            Place
+                        </div>
+                        <div class="col-sm-8 mb-2">
+                            <input type="text" name="place" class="form-control shadow-none">
+                        </div>
+                        <div class="col-sm-4 mb-2">
+                            Street
+                        </div>
+                        <div class="col-sm-8 mb-2">
+                            <input type="text" name="street" class="form-control shadow-none">
+                        </div>
+                        <div class="col-sm-4 mb-2">
+                            Pincode
+                        </div>
+                        <div class="col-sm-8 mb-2">
+                            <input type="text" name="pcode" class="form-control shadow-none">
+                        </div>
+                        <div class="col-sm-4 mb-2">
+                            Contact Number
+                        </div>
+                        <div class="col-sm-8 mb-2">
+                            <input type="text" name="cno" class="form-control shadow-none">
+                        </div>
+                        <div class="col-sm-4 mb-2">
+                            Organ Need
+                        </div>
+                        <div class="col-sm-8 mb-2">
+                            <select name="organ" class="form-select">
+                                <option>All Organs</option>
+                                <option>Eyes</option>
+                                <option>Kidneys</option>
+                              <option>Lungs</option>
+                              <option>Heart</option>
+                              <option>Liver</option>
+                              
+                              
+                               </select>
+                        </div>
+                        <div class="col-sm-4 mb-2">
+                            Blood Group
+                        </div>
+                        <div class="col-sm-8 mb-2">
+                            <select name="bgroup" class="form-select">
+                                <option>O+</option>
+                                <option>O-</option>
+                                <option>B+</option>
+                                <option>B-</option>
+                                <option>AB+</option>
+                                <option>AB-</option>
+                                <option>A+</option>
+                                <option>A-</option>
+                               </select>
+                        </div>
+
+
+
+                        <div class="col-sm-4 mb-2">
+                         
+                        </div>
+                        <div class="col-sm-8 mb-2">
+                            <input type="submit" value="Submit" class="btn btn-success shadow-none">
+                        </div>
+                        
+    
+                    </div>
+                    <input type="hidden" name="dname" value="{{dname}}">
+                    <input type="hidden" name="demail" value="{{email}}">
+                    <input type="hidden" name="hname" value="{{hname}}">
+                    <input type="hidden" name="st" value="Not Donated">
+                    <input type="hidden" name="hash" value="-">
+                    
+                </form>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    {% include "footer.html" %}
+</body>
+
+</html>

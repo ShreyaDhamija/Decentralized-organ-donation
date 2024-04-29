@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+	
+</head>
+<body>
+    {% include "header_home.html" %}
+    
+      <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-6"></div>
+            <div class="col-sm-3 text-center">
+               
+            </div>
+              
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6">
+                <img class="img-fluid " src="/static/images/1.jpg" alt="">
+          </div>
+              
+                  <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <img src="/static/images/123.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="row">
+                                {% for message in messages%}
+                                <div class="alert alert-success" role="alert">
+                                    {{message}}
+                                    {{break}}
+                                </div>
+                                {% endfor %}
+                                <div class="col-sm-12 mb-2 text-center">
+                                    <h3>Doctor Sign Up</h3>
+                                </div>
+                                <div class="col-sm-3 mb-4">
+                                    Doctor Name
+                                </div>
+                                <div class="col-sm-9 mb-4">
+                                    <input type="text" name="dname" class="form-control" required>
+                                </div>
+                                <div class="col-sm-3 mb-2">
+                                    Qualification
+                                </div>
+                                <div class="col-sm-9 mb-2">
+                                    <input type="text" name="quali" class="form-control" required>
+                                </div>
+                                <div class="col-sm-3 mb-2">
+                                    Speciality
+                                </div>
+                                <div class="col-sm-9 mb-2">
+                                    <input type="text" name="spec" class="form-control" required>
+                                   
+                                    
+                                </div>
+                                <div class="col-sm-3 mb-2">
+                                    Hospital Name
+                                </div>
+                                <div class="col-sm-9 mb-2">
+                                    <input type="text" name="hname" class="form-control" required>
+                                </div>
+                                <div class="col-sm-3 mb-2">
+                                    Place
+                                </div>
+                                <div class="col-sm-9 mb-2">
+                                    <input type="text" name="place" class="form-control" required>
+                                </div>
+                                <div class="col-sm-3 mb-2">
+                                    E-Mail
+                                </div>
+                                <div class="col-sm-9 mb-2">
+                                    <input type="email" name="email" class="form-control" required>
+                                </div>
+                                <div class="col-sm-3 mb-2">
+                                    Contact No
+                                </div>
+                                <div class="col-sm-9 mb-2">
+                                    <input type="number" name="cno" class="form-control" required>
+                                </div>
+                                
+                                <div class="col-sm-3 mb-2">
+                                    User Name
+                                </div>
+                                <div class="col-sm-9 mb-2">
+                                    <input type="text" name="uname" class="form-control" required>
+                                </div>
+                                <div class="col-sm-3 mb-2">
+                                    Password
+                                </div>
+                                <div class="col-sm-9 mb-2">
+                                    <input type="password" name="pass1" class="form-control" required>
+                                    
+                                </div>
+                                <div class="col-sm-3 mb-2">
+    
+                                </div>
+                                <div class="col-sm-9 mb-2">
+    
+                                    <input type="submit" class="btn btn-success" value="Register">
+                                </div>
+    
+                            </div>
+                        </div>
+                        
+    
+                    
+            </form>
+              </div>
+             
+          </div>
+      </div>
+      <div class="footer">
+        <div class="copyright text-center">
+        <p>Copyright © {% now "Y" %}</p>
+        </div>
+        </div>
+</body>
+</html>

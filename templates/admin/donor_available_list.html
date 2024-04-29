@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'home/css/bootstrap.min.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+    {% include "header_admin.html" %}
+    <div class="card mb-12">
+        <div class="card-header"><strong>Donor Available List</strong></div>
+        <div class="row">
+    <div class="col-sm-12">
+        {% for msg in messages%}
+        <div class="alert alert-success mt-2">
+            {{msg}}
+            
+          </div>
+        {% endfor %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Donor Name</th>
+                            <th>Relation Name</th>
+                            <th>Address</th>
+                            <th>Date-Of-Birth</th>
+                            <th>Gender</th>
+                            <th>Blood Group</th>
+                            <th>Hash Key</th>
+                            <th>Occupation</th>
+                           
+                            <th>E-Mail ID</th>
+                            <th>Contact No</th>
+                            <th>Status</th>
+                           
+                           
+                        </tr>
+                    </thead>
+            <tbody>
+                {% for ob in form%}
+                <tr>
+                    <td>{{ob.id}}</td>
+                    <td>{{ob.dname}}</td>
+                    <td>{{ob.rname}}</td>
+                    <td>{{ob.addr}}</td>
+                    <td>{{ob.dob}}</td>
+                    <td>{{ob.gender}}</td>
+                    <td>{{ob.bgroup}}</td>
+                    <td>{{ob.hash}}</td>
+                    
+                    <td>{{ob.occ}}</td>
+                    
+                    <td>{{ob.email}}</td>
+                    
+                    <td>{{ob.cno}}</td>
+                    <td>{{ob.st}}</td>
+                  
+                            
+                  
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+            </div>
+            
+        </div>
+    </div>
+    {% include "footer.html" %}
+</body>
+
+</html>
